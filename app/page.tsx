@@ -60,7 +60,8 @@ const PROJECT_FOCUS: string[] = [
   "Structured booking and quote flow",
   "Clear service selection and add-ons",
   "Lead capture and email handling",
-  "Foundation for future automation",
+  "Optimizing performance of media items",
+  "Foundation for future integrations",
 ];
 
 const STEPS: Step[] = [
@@ -70,6 +71,12 @@ const STEPS: Step[] = [
   "Deliver something clearer, faster, and easier to manage.",
 ];
 
+const PRIMARY_CTA_CLASS =
+  "rounded-full bg-accent px-7 py-3.5 text-sm font-bold tracking-[0.02em] text-foreground shadow-[0_12px_30px_rgba(148,185,255,0.24)] transition hover:border-foreground hover:bg-foreground hover:text-surface hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+
+const SECONDARY_CTA_CLASS =
+  "rounded-full border-2 border-border bg-surface px-7 py-3.5 text-sm font-bold tracking-[0.02em] text-foreground transition hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+
 function SectionHeading({
   eyebrow,
   title,
@@ -77,10 +84,10 @@ function SectionHeading({
 }: SectionHeadingProps): JSX.Element {
   return (
     <div className={className}>
-      <p className="text-sm uppercase tracking-[0.24em] text-[#e5e7eb]">
+      <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
         {eyebrow}
       </p>
-      <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] text-white sm:text-4xl">
+      <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] text-foreground sm:text-4xl">
         {title}
       </h2>
     </div>
@@ -91,41 +98,33 @@ function Hero({ bestFit }: HeroProps): JSX.Element {
   return (
     <section className="mx-auto grid max-w-6xl gap-14 px-6 py-20 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-28">
       <div className="max-w-3xl">
-        <p className="mb-4 text-sm uppercase tracking-[0.26em] text-[#e5e7eb]">
+        <p className="mb-4 text-sm uppercase tracking-[0.26em] text-accent font-bold">
           Websites, apps & smarter workflows
         </p>
 
-        <h1 className="text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl">
+        <h1 className="text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-6xl">
           I build systems that make businesses run smoother.
         </h1>
 
-        <p className="mt-6 max-w-2xl text-lg leading-8 text-[#f3f4f6]">
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-foreground/92">
           From websites and mobile apps to booking flows and internal tools, I
           design and build solutions that reduce manual work, improve client
           experience, and bring structure to how your business operates.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">
-          <a
-            href="#contact"
-            className="rounded-full bg-[#f4957a] px-6 py-3 text-sm font-medium text-[#353f44] shadow-[0_10px_30px_rgba(244,149,122,0.3)] transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4957a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#353f44]"
-          >
+          <a href="#contact" className={PRIMARY_CTA_CLASS}>
             Start a project
           </a>
-          <a
-            href="#work"
-            className="rounded-full border border-[#c4c8cb]/40 px-6 py-3 text-sm font-medium text-[#e5e7eb] transition hover:border-[#f4957a] hover:text-[#f4957a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4957a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#353f44]"
-          >
+          <a href="#work" className={SECONDARY_CTA_CLASS}>
             View current work
           </a>
         </div>
       </div>
 
       <div className="relative">
-        <div className="absolute inset-0 rounded-[2rem] bg-white/5 blur-2xl" />
-
-        <div className="relative rounded-[2rem] border border-white/20 bg-[#2a3236]/90 p-8 shadow-[0_25px_80px_rgba(0,0,0,0.25)]">
-          <p className="text-sm uppercase tracking-[0.24em] text-[#e5e7eb]">
+        <div className="relative rounded-[2rem] border-2 border-border bg-[linear-gradient(90deg,#f6fbf7_0%,#e4efff_100%)] p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
+          <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
             Best fit
           </p>
 
@@ -133,7 +132,7 @@ function Hero({ bestFit }: HeroProps): JSX.Element {
             {bestFit.map((item) => (
               <div
                 key={item}
-                className="rounded-xl border border-white/20 bg-white/[0.04] px-4 py-3 text-sm text-[#e5e7eb]"
+                className="rounded-xl border border-border bg-surface-strong px-4 py-3 text-sm text-foreground"
               >
                 {item}
               </div>
@@ -147,7 +146,7 @@ function Hero({ bestFit }: HeroProps): JSX.Element {
 
 function ServicesSection({ services }: ServicesSectionProps): JSX.Element {
   return (
-    <section className="border-y border-white/20 bg-[#2a3236]">
+    <section className="border-y-2 border-border bg-surface-strong">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
         <SectionHeading
           eyebrow="What I help with"
@@ -159,11 +158,13 @@ function ServicesSection({ services }: ServicesSectionProps): JSX.Element {
           {services.map((item) => (
             <div
               key={item.title}
-              className="rounded-2xl border border-white/20 bg-[#242c30] p-6 transition hover:border-[#f4957a]/30 hover:-translate-y-1"
+              className="rounded-2xl border-2 border-border bg-surface p-6 transition hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_12px_28px_rgba(53,63,68,0.08)]"
             >
-              <div className="mb-4 h-10 w-10 rounded-lg bg-[#f4957a]/20" />
-              <h3 className="text-lg font-medium text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-[#f3f4f6]">
+              <div className="mb-4 h-10 w-10 rounded-lg bg-surface-blue ring-1 ring-inset ring-border" />
+              <h3 className="text-lg font-medium text-foreground">
+                {item.title}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-foreground/92">
                 {item.text}
               </p>
             </div>
@@ -188,21 +189,21 @@ function CurrentWorkSection({
         className="max-w-2xl"
       />
 
-      <div className="mt-10 rounded-[2rem] border border-white/20 bg-[#2a3236] p-8 shadow-[0_25px_80px_rgba(0,0,0,0.2)]">
+      <div className="mt-10 rounded-[2rem] border-2 border-border bg-surface p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
         <div className="flex flex-wrap items-start justify-between gap-6">
           <div className="max-w-2xl">
-            <p className="text-sm uppercase tracking-[0.24em] text-[#e5e7eb]">
+            <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
               In progress
             </p>
-            <h3 className="mt-3 text-2xl font-semibold text-white">
+            <h3 className="mt-3 text-2xl font-semibold text-foreground">
               Casa Film &amp; Music
             </h3>
-            <p className="mt-5 text-base leading-8 text-[#f3f4f6]">
+            <p className="mt-5 text-base leading-8 text-foreground/90">
               I’m currently designing and building a custom website and
               structured booking system for a creative studio offering
               photography, videography, and music services.
             </p>
-            <p className="mt-4 text-base leading-8 text-[#f3f4f6]">
+            <p className="mt-4 text-base leading-8 text-foreground/90">
               The focus is on reducing back-and-forth communication,
               standardising how enquiries are captured, and making the quoting
               process faster, clearer, and more consistent — both for the client
@@ -210,14 +211,14 @@ function CurrentWorkSection({
             </p>
           </div>
 
-          <div className="min-w-[260px] flex-1 rounded-3xl border border-white/20 bg-[#242c30] p-6">
-            <p className="text-sm uppercase tracking-[0.24em] text-[#e5e7eb]">
+          <div className="min-w-[260px] flex-1 rounded-3xl border-2 border-border bg-surface-strong p-6">
+            <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
               Project focus
             </p>
-            <ul className="mt-5 space-y-3 text-sm text-[#e5e7eb]">
+            <ul className="mt-5 space-y-3 text-sm text-foreground">
               {projectFocus.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#f4957a]" />
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent ring-1 ring-border" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -231,7 +232,7 @@ function CurrentWorkSection({
 
 function HowIWorkSection({ steps }: HowIWorkSectionProps): JSX.Element {
   return (
-    <section className="border-t border-white/20 bg-[#2a3236]/70">
+    <section className="border-t-2 border-border bg-surface-blue">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
         <SectionHeading
           eyebrow="How I work"
@@ -243,12 +244,12 @@ function HowIWorkSection({ steps }: HowIWorkSectionProps): JSX.Element {
           {steps.map((step, index) => (
             <div
               key={step}
-              className="group flex items-center gap-4 rounded-2xl border border-white/20 bg-[#242c30] p-5 transition hover:-translate-y-1 hover:border-[#f4957a]/40 hover:shadow-[0_10px_30px_rgba(0,0,0,0.25)] focus-within:border-[#f4957a]/40"
+              className="group flex items-center gap-4 rounded-2xl border-2 border-border bg-surface p-5 transition hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_10px_24px_rgba(53,63,68,0.08)] focus-within:border-accent/45"
             >
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-[#f4957a]/50 text-sm text-[#f4957a] transition group-hover:bg-[#f4957a]/10">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-accent/60 text-sm text-accent transition group-hover:bg-surface">
                 {index + 1}
               </div>
-              <p className="text-sm leading-7 text-[#f3f4f6]">{step}</p>
+              <p className="text-sm leading-7 text-foreground/92">{step}</p>
             </div>
           ))}
         </div>
@@ -260,8 +261,8 @@ function HowIWorkSection({ steps }: HowIWorkSectionProps): JSX.Element {
 function ContactSection(): JSX.Element {
   return (
     <section className="mx-auto max-w-4xl px-6 py-20 lg:px-8" id="contact">
-      <div className="rounded-[2rem] border border-white/20 bg-[#2a3236] p-10 text-center shadow-[0_25px_80px_rgba(0,0,0,0.25)]">
-        <div className="mx-auto mb-6 h-20 w-20 overflow-hidden rounded-xl border border-white/20 bg-[#242c30]">
+      <div className="rounded-[2rem] border-2 border-border bg-surface-blue p-10 text-center shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
+        <div className="mx-auto mb-6 h-20 w-20 overflow-hidden rounded-xl border border-border bg-surface p-1">
           <Image
             src="/logo.svg"
             alt="Elise Verhoeye logo"
@@ -271,13 +272,13 @@ function ContactSection(): JSX.Element {
           />
         </div>
 
-        <p className="text-sm uppercase tracking-[0.24em] text-[#e5e7eb]">
+        <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
           Get in touch
         </p>
-        <h2 className="mt-4 text-3xl font-semibold text-white">
+        <h2 className="mt-4 text-3xl font-semibold text-foreground">
           Need a better system, product, or workflow?
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-[#f3f4f6]">
+        <p className="mx-auto mt-4 max-w-xl text-foreground/92">
           I’m currently available for freelance projects across web, mobile, and
           automation.
         </p>
@@ -285,13 +286,13 @@ function ContactSection(): JSX.Element {
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <a
             href="mailto:eliseverhoeye@hotmail.com"
-            className="rounded-full bg-[#f4957a] px-6 py-3 text-sm font-medium text-[#353f44] shadow-[0_10px_30px_rgba(244,149,122,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4957a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#353f44]"
+            className={PRIMARY_CTA_CLASS}
           >
-            Let's chat!
+            Let&apos;s chat!
           </a>
           <a
             href="https://www.linkedin.com/in/eliseverhoeye/"
-            className="rounded-full border border-[#c4c8cb]/40 px-6 py-3 text-sm text-[#e5e7eb] hover:border-[#f4957a] hover:text-[#f4957a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4957a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#353f44]"
+            className={SECONDARY_CTA_CLASS}
           >
             LinkedIn
           </a>
@@ -304,16 +305,11 @@ function ContactSection(): JSX.Element {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function FreelancePositioningSite(_props: Props): JSX.Element {
   return (
-    <div className="min-h-screen bg-[#353f44] text-[#f3f4f6]">
-      <div className="pointer-events-none fixed inset-0">
-        <div className="absolute left-[-6rem] top-[-6rem] h-72 w-72 rounded-full bg-[#f4957a]/10 blur-3xl" />
-        <div className="absolute right-[-8rem] top-40 h-80 w-80 rounded-full bg-white/5 blur-3xl" />
-      </div>
-
-      <header className="sticky top-0 z-20 border-b border-white/20 bg-[#353f44]/85 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-8">
-          <div className="flex items-center gap-4">
-            <div className="h-16 w-16 overflow-hidden rounded-xl border border-white/20 bg-[#2a3236]">
+    <div className="min-h-screen bg-background text-foreground">
+      <header className="sticky top-0 z-50 border-b-2 border-border bg-[rgba(255,255,255,0.94)] shadow-[0_1px_0_rgba(53,63,68,0.06)] backdrop-blur-sm">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="h-11 w-11 shrink-0 sm:h-16 sm:w-16">
               <Image
                 src="/logo.svg"
                 alt="Elise Verhoeye logo"
@@ -322,11 +318,11 @@ export default function FreelancePositioningSite(_props: Props): JSX.Element {
                 className="h-full w-full object-contain"
               />
             </div>
-            <div>
-              <p className="text-sm uppercase tracking-[0.24em] text-white">
+            <div className="min-w-0">
+              <p className="truncate text-sm uppercase tracking-[0.2em] text-foreground sm:tracking-[0.24em]">
                 Elise Verhoeye
               </p>
-              <p className="text-xs text-[#e5e7eb]">
+              <p className="text-xs text-muted sm:block">
                 Freelance software engineer
               </p>
             </div>
@@ -334,7 +330,7 @@ export default function FreelancePositioningSite(_props: Props): JSX.Element {
 
           <a
             href="#contact"
-            className="rounded-full border border-[#c4c8cb]/40 bg-white/[0.03] px-4 py-2 text-sm text-[#e5e7eb] transition hover:border-[#f4957a] hover:text-[#f4957a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4957a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#353f44]"
+            className="ml-auto shrink-0 rounded-full border-2 border-border bg-surface px-4 py-2 text-sm font-bold text-foreground transition hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Get in touch
           </a>
