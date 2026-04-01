@@ -22,12 +22,18 @@ type HeroProps = {
   bestFit: BestFitItem[];
 };
 
+type AboutSectionProps = Record<string, never>;
+
 type ServicesSectionProps = {
   services: Service[];
 };
 
 type CurrentWorkSectionProps = {
   projectFocus: string[];
+};
+
+type PreviousWorkSectionProps = {
+  highlights: string[];
 };
 
 type HowIWorkSectionProps = {
@@ -64,6 +70,12 @@ const PROJECT_FOCUS: string[] = [
   "Foundation for future integrations",
 ];
 
+const ORCA_HIGHLIGHTS: string[] = [
+  "Built and maintained Orca's mobile app",
+  "Created product pages and the route-weather feature for boaters",
+  "Worked on smaller website improvements to support the broader product",
+];
+
 const STEPS: Step[] = [
   "Understand your workflow and identify inefficiencies.",
   "Design simple, practical systems that solve real problems.",
@@ -72,7 +84,7 @@ const STEPS: Step[] = [
 ];
 
 const PRIMARY_CTA_CLASS =
-  "rounded-full bg-accent px-7 py-3.5 text-sm font-bold tracking-[0.02em] text-foreground shadow-[0_12px_30px_rgba(148,185,255,0.24)] transition hover:border-foreground hover:bg-foreground hover:text-surface hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+  "rounded-full bg-accent px-7 py-3.5 text-sm font-bold tracking-[0.02em] text-foreground shadow-[0_12px_30px_rgba(216,111,75,0.24)] transition hover:border-foreground hover:bg-foreground hover:text-surface hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 const SECONDARY_CTA_CLASS =
   "rounded-full border-2 border-border bg-surface px-7 py-3.5 text-sm font-bold tracking-[0.02em] text-foreground transition hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
@@ -108,8 +120,9 @@ function Hero({ bestFit }: HeroProps): JSX.Element {
 
         <p className="mt-6 max-w-2xl text-lg leading-8 text-foreground/92">
           From websites and mobile apps to booking flows and internal tools, I
-          design and build solutions that reduce manual work, improve client
-          experience, and bring structure to how your business operates.
+          design and build solutions that reduce manual work, give people time
+          back, improve client experience, and bring structure to how your
+          business operates.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">
@@ -123,7 +136,7 @@ function Hero({ bestFit }: HeroProps): JSX.Element {
       </div>
 
       <div className="relative">
-        <div className="relative rounded-[2rem] border-2 border-border bg-[linear-gradient(90deg,#f6fbf7_0%,#e4efff_100%)] p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
+        <div className="relative rounded-[2rem] border border-border/60 bg-[linear-gradient(135deg,#fff7ef_0%,#f7e5dc_42%,#e8eff7_100%)] p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
           <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
             Best fit
           </p>
@@ -132,7 +145,7 @@ function Hero({ bestFit }: HeroProps): JSX.Element {
             {bestFit.map((item) => (
               <div
                 key={item}
-                className="rounded-xl border border-border bg-surface-strong px-4 py-3 text-sm text-foreground"
+                className="rounded-xl border border-border/60 bg-surface-strong px-4 py-3 text-sm text-foreground"
               >
                 {item}
               </div>
@@ -144,9 +157,57 @@ function Hero({ bestFit }: HeroProps): JSX.Element {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function AboutSection(_props: AboutSectionProps): JSX.Element {
+  return (
+    <section className="border-t border-border/50 bg-surface-strong">
+      <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
+        <SectionHeading
+          eyebrow="About me"
+          title="Hi there, nice to meet you."
+          className="max-w-2xl"
+        />
+
+        <div className="mt-10 grid gap-10 rounded-[2rem] border border-border/50 bg-surface p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)] lg:grid-cols-[1.35fr_0.65fr] lg:items-center lg:gap-12">
+          <div className="max-w-none">
+            <p className="mb-5 text-sm uppercase tracking-[0.22em] text-accent font-bold">
+              Automation that gives time back.
+            </p>
+            <p className="text-base leading-8 text-foreground/90">
+              I&apos;m Elise, a freelance software engineer focused on building
+              websites, mobile apps, and automation that make everyday business
+              operations feel simpler. I enjoy turning product ideas and messy
+              workflows into practical digital solutions that save time, reduce
+              manual work, and are easier to use, manage, and grow.
+            </p>
+            <p className="mt-4 text-base leading-8 text-foreground/90">
+              I like working closely with clients to understand what actually
+              needs to happen, then shaping the technical solution around that
+              so the final result fits the workflow, not the other way around.
+            </p>
+          </div>
+
+          <div className="relative ml-auto w-full max-w-[240px] overflow-hidden rounded-[1.75rem] border border-border/50 bg-[linear-gradient(135deg,#fff7ef_0%,#f4e2d5_42%,#e1ecf6_100%)] p-4 shadow-[0_18px_40px_rgba(53,63,68,0.08)] lg:max-w-[280px] lg:justify-self-end lg:ml-4">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(216,111,75,0.12),transparent_45%)]" />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem] border border-border/40 bg-surface/70">
+              <Image
+                src="/elise.jpeg"
+                alt="Elise Verhoeye photo"
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover object-center"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ServicesSection({ services }: ServicesSectionProps): JSX.Element {
   return (
-    <section className="border-y-2 border-border bg-surface-strong">
+    <section className="border-t border-border/50 bg-surface-warm">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
         <SectionHeading
           eyebrow="What I help with"
@@ -158,9 +219,9 @@ function ServicesSection({ services }: ServicesSectionProps): JSX.Element {
           {services.map((item) => (
             <div
               key={item.title}
-              className="rounded-2xl border-2 border-border bg-surface p-6 transition hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_12px_28px_rgba(53,63,68,0.08)]"
+              className="rounded-2xl border border-border/50 bg-surface p-6 transition hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_12px_28px_rgba(53,63,68,0.08)]"
             >
-              <div className="mb-4 h-10 w-10 rounded-lg bg-surface-blue ring-1 ring-inset ring-border" />
+              <div className="mb-4 h-10 w-10 rounded-lg bg-surface-blue ring-1 ring-inset ring-border/50" />
               <h3 className="text-lg font-medium text-foreground">
                 {item.title}
               </h3>
@@ -179,50 +240,100 @@ function CurrentWorkSection({
   projectFocus,
 }: CurrentWorkSectionProps): JSX.Element {
   return (
-    <section
-      id="work"
-      className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20"
-    >
-      <SectionHeading
-        eyebrow="Current work"
-        title="Building systems that support real businesses."
-        className="max-w-2xl"
-      />
+    <section id="work" className="border-t border-border/50 bg-surface-blue">
+      <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
+        <SectionHeading
+          eyebrow="Current work"
+          title="Building systems that support real businesses."
+          className="max-w-2xl"
+        />
 
-      <div className="mt-10 rounded-[2rem] border-2 border-border bg-surface p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
-        <div className="flex flex-wrap items-start justify-between gap-6">
-          <div className="max-w-2xl">
-            <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
-              In progress
-            </p>
-            <h3 className="mt-3 text-2xl font-semibold text-foreground">
-              Casa Film &amp; Music
-            </h3>
-            <p className="mt-5 text-base leading-8 text-foreground/90">
-              I’m currently designing and building a custom website and
-              structured booking system for a creative studio offering
-              photography, videography, and music services.
-            </p>
-            <p className="mt-4 text-base leading-8 text-foreground/90">
-              The focus is on reducing back-and-forth communication,
-              standardising how enquiries are captured, and making the quoting
-              process faster, clearer, and more consistent — both for the client
-              and internally.
-            </p>
+        <div className="mt-10 rounded-[2rem] border border-border/50 bg-surface-strong p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
+          <div className="flex flex-wrap items-start justify-between gap-6">
+            <div className="max-w-2xl">
+              <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
+                In progress
+              </p>
+              <h3 className="mt-3 text-2xl font-semibold text-foreground">
+                Casa Film &amp; Music
+              </h3>
+              <p className="mt-5 text-base leading-8 text-foreground/90">
+                I’m currently designing and building a custom website and
+                structured booking system for a creative studio offering
+                photography, videography, and music services.
+              </p>
+              <p className="mt-4 text-base leading-8 text-foreground/90">
+                The focus is on reducing back-and-forth communication,
+                standardising how enquiries are captured, and making the quoting
+                process faster, clearer, and more consistent — both for the
+                client and internally.
+              </p>
+            </div>
+
+            <div className="min-w-[260px] flex-1 rounded-3xl border border-border/50 bg-surface p-6">
+              <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
+                Project focus
+              </p>
+              <ul className="mt-5 space-y-3 text-sm text-foreground">
+                {projectFocus.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent ring-1 ring-border" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
-          <div className="min-w-[260px] flex-1 rounded-3xl border-2 border-border bg-surface-strong p-6">
-            <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
-              Project focus
-            </p>
-            <ul className="mt-5 space-y-3 text-sm text-foreground">
-              {projectFocus.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent ring-1 ring-border" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+function PreviousWorkSectionCompact({
+  highlights,
+}: PreviousWorkSectionProps): JSX.Element {
+  return (
+    <section className="border-t border-border/50 bg-surface-strong">
+      <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
+        <SectionHeading
+          eyebrow="Previous experience"
+          title="Mobile app development for Orca."
+          className="max-w-2xl"
+        />
+
+        <div className="mt-10 rounded-[2rem] border border-border/50 bg-surface p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
+          <div className="flex flex-wrap items-start justify-between gap-6">
+            <div className="max-w-2xl">
+              <h3 className="mt-3 text-2xl font-semibold text-foreground">
+                Orca
+              </h3>
+              <p className="mt-5 text-base leading-8 text-foreground/90">
+                I worked with Orca, a startup building modern navigation tools
+                for sailors and cruisers. My focus was mainly on mobile app
+                development, helping ship features that made the product more
+                useful and easier to use.
+              </p>
+              <p className="mt-4 text-base leading-8 text-foreground/90">
+                That included new product pages, the route-weather feature for
+                boaters, and a smaller amount of website work to support the
+                wider product experience.
+              </p>
+            </div>
+
+            <div className="min-w-[260px] flex-1 rounded-3xl border border-border/50 bg-surface-strong p-6">
+              <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
+                Project highlights
+              </p>
+              <ul className="mt-5 space-y-3 text-sm text-foreground">
+                {highlights.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent ring-1 ring-border" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -232,7 +343,7 @@ function CurrentWorkSection({
 
 function HowIWorkSection({ steps }: HowIWorkSectionProps): JSX.Element {
   return (
-    <section className="border-t-2 border-border bg-surface-blue">
+    <section className="border-t border-border/50 bg-surface-warm">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
         <SectionHeading
           eyebrow="How I work"
@@ -244,9 +355,9 @@ function HowIWorkSection({ steps }: HowIWorkSectionProps): JSX.Element {
           {steps.map((step, index) => (
             <div
               key={step}
-              className="group flex items-center gap-4 rounded-2xl border-2 border-border bg-surface p-5 transition hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_10px_24px_rgba(53,63,68,0.08)] focus-within:border-accent/45"
+              className="group flex items-center gap-4 rounded-2xl border border-border/50 bg-surface p-5 transition hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_10px_24px_rgba(53,63,68,0.08)] focus-within:border-accent/45"
             >
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-accent/60 text-sm text-accent transition group-hover:bg-surface">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-accent/60 text-sm text-accent transition group-hover:bg-surface">
                 {index + 1}
               </div>
               <p className="text-sm leading-7 text-foreground/92">{step}</p>
@@ -260,42 +371,34 @@ function HowIWorkSection({ steps }: HowIWorkSectionProps): JSX.Element {
 
 function ContactSection(): JSX.Element {
   return (
-    <section className="mx-auto max-w-4xl px-6 py-20 lg:px-8" id="contact">
-      <div className="rounded-[2rem] border-2 border-border bg-surface-blue p-10 text-center shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
-        <div className="mx-auto mb-6 h-20 w-20 overflow-hidden rounded-xl border border-border bg-surface p-1">
-          <Image
-            src="/logo.svg"
-            alt="Elise Verhoeye logo"
-            className="h-full w-full object-contain"
-            width={20}
-            height={20}
-          />
-        </div>
+    <section className="border-t border-border/50 bg-surface-blue" id="contact">
+      <div className="mx-auto max-w-4xl px-6 py-20 lg:px-8">
+        <div className="rounded-[2rem] border border-border/50 bg-surface-strong p-10 text-center shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
+          <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
+            Get in touch
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold text-foreground">
+            Need a better system, product, or workflow?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-foreground/92">
+            I’m currently available for freelance projects across web, mobile,
+            and automation.
+          </p>
 
-        <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
-          Get in touch
-        </p>
-        <h2 className="mt-4 text-3xl font-semibold text-foreground">
-          Need a better system, product, or workflow?
-        </h2>
-        <p className="mx-auto mt-4 max-w-xl text-foreground/92">
-          I’m currently available for freelance projects across web, mobile, and
-          automation.
-        </p>
-
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <a
-            href="mailto:eliseverhoeye@hotmail.com"
-            className={PRIMARY_CTA_CLASS}
-          >
-            Let&apos;s chat!
-          </a>
-          <a
-            href="https://www.linkedin.com/in/eliseverhoeye/"
-            className={SECONDARY_CTA_CLASS}
-          >
-            LinkedIn
-          </a>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <a
+              href="mailto:eliseverhoeye@hotmail.com"
+              className={PRIMARY_CTA_CLASS}
+            >
+              Let&apos;s chat!
+            </a>
+            <a
+              href="https://www.linkedin.com/in/eliseverhoeye/"
+              className={SECONDARY_CTA_CLASS}
+            >
+              LinkedIn
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -306,25 +409,17 @@ function ContactSection(): JSX.Element {
 export default function FreelancePositioningSite(_props: Props): JSX.Element {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="sticky top-0 z-50 border-b-2 border-border bg-[rgba(255,255,255,0.94)] shadow-[0_1px_0_rgba(53,63,68,0.06)] backdrop-blur-sm">
+      <header className="sticky top-0 z-50 border-b border-border/50 bg-[linear-gradient(90deg,rgba(255,247,239,0.98)_0%,rgba(225,236,246,0.98)_55%,rgba(248,215,196,0.98)_100%)] shadow-[0_1px_0_rgba(40,50,59,0.05),0_12px_30px_rgba(40,50,59,0.04)] backdrop-blur-sm">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 sm:gap-4">
-            <div className="h-11 w-11 shrink-0 sm:h-16 sm:w-16">
+            <div className="w-40 shrink-0 md:w-48 lg:w-64">
               <Image
-                src="/logo.svg"
+                src="/elisebuilds.svg"
                 alt="Elise Verhoeye logo"
-                width={20}
-                height={20}
+                width={112}
+                height={112}
                 className="h-full w-full object-contain"
               />
-            </div>
-            <div className="min-w-0">
-              <p className="truncate text-sm uppercase tracking-[0.2em] text-foreground sm:tracking-[0.24em]">
-                Elise Verhoeye
-              </p>
-              <p className="text-xs text-muted sm:block">
-                Freelance software engineer
-              </p>
             </div>
           </div>
 
@@ -339,8 +434,10 @@ export default function FreelancePositioningSite(_props: Props): JSX.Element {
 
       <main>
         <Hero bestFit={BEST_FIT} />
+        <AboutSection />
         <ServicesSection services={SERVICES} />
         <CurrentWorkSection projectFocus={PROJECT_FOCUS} />
+        <PreviousWorkSectionCompact highlights={ORCA_HIGHLIGHTS} />
         <HowIWorkSection steps={STEPS} />
         <ContactSection />
       </main>

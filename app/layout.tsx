@@ -2,13 +2,13 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "d·EV | Freelance software engineer",
+  title: "elisebuilds.com | Elise Verhoeye",
   description:
     "Websites, mobile apps, and workflow automation for businesses that want to run more smoothly.",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f7fafc",
+  themeColor: "#fff7ef",
 };
 
 export default function RootLayout({
