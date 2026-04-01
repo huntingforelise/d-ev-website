@@ -84,7 +84,7 @@ const STEPS: Step[] = [
 ];
 
 const PRIMARY_CTA_CLASS =
-  "rounded-full bg-accent px-7 py-3.5 text-sm font-bold tracking-[0.02em] text-foreground shadow-[0_12px_30px_rgba(216,111,75,0.24)] transition hover:border-foreground hover:bg-foreground hover:text-surface hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+  "rounded-full bg-accent px-7 py-3.5 text-sm font-bold tracking-[0.02em] text-background shadow-[0_12px_30px_rgba(216,111,75,0.24)] transition hover:border-foreground hover:bg-foreground hover:text-surface hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 const SECONDARY_CTA_CLASS =
   "rounded-full border-2 border-border bg-surface px-7 py-3.5 text-sm font-bold tracking-[0.02em] text-foreground transition hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
