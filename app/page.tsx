@@ -387,7 +387,7 @@ function ContactSection(): JSX.Element {
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
-              href="mailto:eliseverhoeye@hotmail.com"
+              href="mailto:elise@elisebuilds.com"
               className={PRIMARY_CTA_CLASS}
             >
               Let&apos;s chat!
