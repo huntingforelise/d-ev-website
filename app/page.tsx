@@ -185,7 +185,7 @@ function AboutSection(_props: AboutSectionProps): JSX.Element {
             </p>
           </div>
 
-          <div className="relative ml-auto w-full max-w-[240px] overflow-hidden rounded-[1.75rem] border border-border/50 bg-[linear-gradient(135deg,#fff7ef_0%,#f4e2d5_42%,#e1ecf6_100%)] p-4 shadow-[0_18px_40px_rgba(53,63,68,0.08)] lg:max-w-[280px] lg:justify-self-end lg:ml-4">
+          <div className="relative mx-auto w-full max-w-[240px] overflow-hidden rounded-[1.75rem] border border-border/50 bg-[linear-gradient(135deg,#fff7ef_0%,#f4e2d5_42%,#e1ecf6_100%)] p-4 shadow-[0_18px_40px_rgba(53,63,68,0.08)] lg:max-w-[280px] lg:mx-0 lg:justify-self-end lg:ml-4">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(216,111,75,0.12),transparent_45%)]" />
             <div className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem] border border-border/40 bg-surface/70">
               <Image
