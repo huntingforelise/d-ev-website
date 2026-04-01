@@ -384,10 +384,10 @@ function ContactSection(): JSX.Element {
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <CalendlyButton />
             <a href="mailto:elise@elisebuilds.com" className="cta-secondary">
               Send me an email
             </a>
-            <CalendlyButton />
           </div>
         </div>
       </div>

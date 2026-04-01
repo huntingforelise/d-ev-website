@@ -44,6 +44,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--background);
+  cursor: pointer;
   box-shadow: 0 12px 30px rgba(216, 111, 75, 0.24);
   transition:
     transform 150ms ease,
@@ -74,6 +75,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--foreground);
+  cursor: pointer;
   transition:
     transform 150ms ease,
     color 150ms ease,

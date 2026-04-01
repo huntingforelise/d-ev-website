@@ -23,7 +23,12 @@ export function CalendlyButton(): JSX.Element {
   };
 
   return (
-    <button type="button" onClick={handleClick} className="cta-primary">
+    <button
+      type="button"
+      onClick={handleClick}
+      className="cta-primary"
+      style={{ cursor: "pointer" }}
+    >
       Schedule 30 minutes with me
     </button>
   );
