@@ -35,3 +35,60 @@ body {
   color: var(--foreground);
   font-family: var(--font-ui-sans);
 }
+
+.cta-primary {
+  border-radius: 9999px;
+  background: var(--accent);
+  padding: 0.875rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--background);
+  box-shadow: 0 12px 30px rgba(216, 111, 75, 0.24);
+  transition:
+    transform 150ms ease,
+    background-color 150ms ease,
+    color 150ms ease,
+    border-color 150ms ease;
+}
+
+.cta-primary:hover {
+  transform: translateY(-0.125rem);
+  background: var(--foreground);
+  color: var(--surface);
+}
+
+.cta-primary:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--accent),
+    0 0 0 4px var(--background);
+}
+
+.cta-secondary {
+  border-radius: 9999px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  padding: 0.875rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--foreground);
+  transition:
+    transform 150ms ease,
+    color 150ms ease,
+    border-color 150ms ease;
+}
+
+.cta-secondary:hover {
+  transform: translateY(-0.125rem);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.cta-secondary:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--accent),
+    0 0 0 4px var(--background);
+}

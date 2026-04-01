@@ -1,5 +1,6 @@
 import { JSX } from "react";
 import Image from "next/image";
+import { CalendlyButton } from "./components/CalendlyButton";
 
 type Service = {
   title: string;
@@ -39,6 +40,9 @@ type PreviousWorkSectionProps = {
 type HowIWorkSectionProps = {
   steps: Step[];
 };
+
+const GITHUB_URL = "https://github.com/huntingforelise";
+const LINKEDIN_URL = "https://www.linkedin.com/in/eliseverhoeye/";
 
 const BEST_FIT: BestFitItem[] = [
   "Service-based businesses",
@@ -83,12 +87,6 @@ const STEPS: Step[] = [
   "Deliver something clearer, faster, and easier to manage.",
 ];
 
-const PRIMARY_CTA_CLASS =
-  "rounded-full bg-accent px-7 py-3.5 text-sm font-bold tracking-[0.02em] text-background shadow-[0_12px_30px_rgba(216,111,75,0.24)] transition hover:border-foreground hover:bg-foreground hover:text-surface hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
-
-const SECONDARY_CTA_CLASS =
-  "rounded-full border-2 border-border bg-surface px-7 py-3.5 text-sm font-bold tracking-[0.02em] text-foreground transition hover:border-accent hover:text-accent hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
-
 function SectionHeading({
   eyebrow,
   title,
@@ -126,10 +124,10 @@ function Hero({ bestFit }: HeroProps): JSX.Element {
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">
-          <a href="#contact" className={PRIMARY_CTA_CLASS}>
+          <a href="#contact" className="cta-primary">
             Start a project
           </a>
-          <a href="#work" className={SECONDARY_CTA_CLASS}>
+          <a href="#work" className="cta-secondary">
             View current work
           </a>
         </div>
@@ -386,17 +384,43 @@ function ContactSection(): JSX.Element {
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <a
-              href="mailto:elise@elisebuilds.com"
-              className={PRIMARY_CTA_CLASS}
-            >
-              Let&apos;s chat!
+            <a href="mailto:elise@elisebuilds.com" className="cta-secondary">
+              Send me an email
+            </a>
+            <CalendlyButton />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WorkLinksSection(): JSX.Element {
+  return (
+    <section className="border-t border-border/50 bg-surface-strong">
+      <div className="mx-auto max-w-4xl px-6 py-16 lg:px-8">
+        <div className="rounded-[2rem] border border-border/50 bg-surface p-8 text-center shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
+          <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
+            A small note
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold text-foreground">
+            Despite my love for automation, I am not a robot.
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-foreground/92">
+            You can find my work here.
+          </p>
+
+          <div className="mt-8 flex items-center justify-center gap-3">
+            <a href={LINKEDIN_URL} className="cta-secondary">
+              LinkedIn
             </a>
             <a
-              href="https://www.linkedin.com/in/eliseverhoeye/"
-              className={SECONDARY_CTA_CLASS}
+              href={GITHUB_URL}
+              className="cta-secondary"
+              target="_blank"
+              rel="noreferrer"
             >
-              LinkedIn
+              GitHub
             </a>
           </div>
         </div>
@@ -440,6 +464,7 @@ export default function FreelancePositioningSite(_props: Props): JSX.Element {
         <PreviousWorkSectionCompact highlights={ORCA_HIGHLIGHTS} />
         <HowIWorkSection steps={STEPS} />
         <ContactSection />
+        <WorkLinksSection />
       </main>
     </div>
   );
