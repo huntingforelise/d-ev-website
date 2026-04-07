@@ -37,6 +37,13 @@ type PreviousWorkSectionProps = {
   highlights: string[];
 };
 
+type OrcaTestimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+};
+
 type HowIWorkSectionProps = {
   steps: Step[];
 };
@@ -79,6 +86,14 @@ const ORCA_HIGHLIGHTS: string[] = [
   "Created product pages and the route-weather feature for boaters",
   "Worked on smaller website improvements to support the broader product",
 ];
+
+const ORCA_TESTIMONIAL: OrcaTestimonial = {
+  quote:
+    "I worked with Elise at Orca, where we built mobile features in React Native for the Orca Navigation App... She didn’t just implement, she delivered. She thought through edge cases carefully, tested thoroughly, and didn’t ship until it was right. She is proactive, speaks up in discussions, and contributes well beyond her scope... clear, direct, and easy to work with. She works independently, and that confidence in owning her work is something that’s hard to find. I’d recommend her without hesitation.",
+  name: "Judith Sirera i Pulido",
+  role: "Senior Engineer",
+  company: "Orca",
+};
 
 const STEPS: Step[] = [
   "Understand your workflow and identify inefficiencies.",
@@ -134,7 +149,7 @@ function Hero({ bestFit }: HeroProps): JSX.Element {
       </div>
 
       <div className="relative">
-        <div className="relative rounded-[2rem] border border-border/60 bg-[linear-gradient(135deg,#fff7ef_0%,#f7e5dc_42%,#e8eff7_100%)] p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
+        <div className="relative rounded-[2rem] border border-border/60 bg-surface-strong p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
           <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
             Best fit
           </p>
@@ -143,7 +158,7 @@ function Hero({ bestFit }: HeroProps): JSX.Element {
             {bestFit.map((item) => (
               <div
                 key={item}
-                className="rounded-xl border border-border/60 bg-surface-strong px-4 py-3 text-sm text-foreground"
+                className="rounded-xl border border-border/60 bg-surface px-4 py-3 text-sm text-foreground"
               >
                 {item}
               </div>
@@ -162,7 +177,7 @@ function AboutSection(_props: AboutSectionProps): JSX.Element {
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
         <SectionHeading
           eyebrow="About me"
-          title="Hi there, nice to meet you."
+          title="Nice to meet you."
           className="max-w-2xl"
         />
 
@@ -185,9 +200,8 @@ function AboutSection(_props: AboutSectionProps): JSX.Element {
             </p>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[240px] overflow-hidden rounded-[1.75rem] border border-border/50 bg-[linear-gradient(135deg,#fff7ef_0%,#f4e2d5_42%,#e1ecf6_100%)] p-4 shadow-[0_18px_40px_rgba(53,63,68,0.08)] lg:max-w-[280px] lg:mx-0 lg:justify-self-end lg:ml-4">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(216,111,75,0.12),transparent_45%)]" />
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem] border border-border/40 bg-surface/70">
+          <div className="relative mx-auto w-full max-w-[240px] overflow-hidden rounded-[1.75rem] border border-border/50 bg-surface-blue p-4 shadow-[0_18px_40px_rgba(53,63,68,0.08)] lg:max-w-[280px] lg:mx-0 lg:justify-self-end lg:ml-4">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem] border border-border/40 bg-surface">
               <Image
                 src="/elise.jpeg"
                 alt="Elise Verhoeye photo"
@@ -205,7 +219,7 @@ function AboutSection(_props: AboutSectionProps): JSX.Element {
 
 function ServicesSection({ services }: ServicesSectionProps): JSX.Element {
   return (
-    <section className="border-t border-border/50 bg-surface-warm">
+    <section className="border-t border-border/50 bg-surface">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
         <SectionHeading
           eyebrow="What I help with"
@@ -217,7 +231,7 @@ function ServicesSection({ services }: ServicesSectionProps): JSX.Element {
           {services.map((item) => (
             <div
               key={item.title}
-              className="rounded-2xl border border-border/50 bg-surface p-6 transition hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_12px_28px_rgba(53,63,68,0.08)]"
+              className="rounded-2xl border border-border/50 bg-surface-strong p-6 transition hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_12px_28px_rgba(53,63,68,0.08)]"
             >
               <div className="mb-4 h-10 w-10 rounded-lg bg-surface-blue ring-1 ring-inset ring-border/50" />
               <h3 className="text-lg font-medium text-foreground">
@@ -317,6 +331,15 @@ function PreviousWorkSectionCompact({
                 boaters, and a smaller amount of website work to support the
                 wider product experience.
               </p>
+              <a
+                href="https://getorca.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                View the Orca website
+                <span aria-hidden="true">→</span>
+              </a>
             </div>
 
             <div className="min-w-[260px] flex-1 rounded-3xl border border-border/50 bg-surface-strong p-6">
@@ -334,6 +357,24 @@ function PreviousWorkSectionCompact({
             </div>
           </div>
         </div>
+
+        <div className="mt-8 rounded-[1.5rem] border border-border/50 bg-surface-blue p-6 shadow-[0_12px_28px_rgba(53,63,68,0.06)] lg:p-7">
+          <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
+            What Judith said
+          </p>
+          <blockquote className="mt-4 text-base leading-8 italic text-foreground/92">
+            {ORCA_TESTIMONIAL.quote}
+          </blockquote>
+          <figcaption className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-border/50 pt-5">
+            <p className="font-semibold text-foreground">
+              {ORCA_TESTIMONIAL.name}
+            </p>
+            <span className="text-foreground/55">•</span>
+            <p className="text-sm text-foreground/75">
+              {ORCA_TESTIMONIAL.role} at {ORCA_TESTIMONIAL.company}
+            </p>
+          </figcaption>
+        </div>
       </div>
     </section>
   );
@@ -341,7 +382,7 @@ function PreviousWorkSectionCompact({
 
 function HowIWorkSection({ steps }: HowIWorkSectionProps): JSX.Element {
   return (
-    <section className="border-t border-border/50 bg-surface-warm">
+    <section className="border-t border-border/50 bg-surface">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
         <SectionHeading
           eyebrow="How I work"
@@ -353,9 +394,9 @@ function HowIWorkSection({ steps }: HowIWorkSectionProps): JSX.Element {
           {steps.map((step, index) => (
             <div
               key={step}
-              className="group flex items-center gap-4 rounded-2xl border border-border/50 bg-surface p-5 transition hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_10px_24px_rgba(53,63,68,0.08)] focus-within:border-accent/45"
+              className="group flex items-center gap-4 rounded-2xl border border-border/50 bg-surface-strong p-5 transition hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_10px_24px_rgba(53,63,68,0.08)] focus-within:border-accent/45"
             >
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-accent/60 text-sm text-accent transition group-hover:bg-surface">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-accent/60 bg-surface text-sm text-accent transition group-hover:bg-surface-blue">
                 {index + 1}
               </div>
               <p className="text-sm leading-7 text-foreground/92">{step}</p>
@@ -433,7 +474,7 @@ function WorkLinksSection(): JSX.Element {
 export default function FreelancePositioningSite(_props: Props): JSX.Element {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="sticky top-0 z-50 border-b border-border/50 bg-[linear-gradient(90deg,rgba(255,247,239,0.98)_0%,rgba(225,236,246,0.98)_55%,rgba(248,215,196,0.98)_100%)] shadow-[0_1px_0_rgba(40,50,59,0.05),0_12px_30px_rgba(40,50,59,0.04)] backdrop-blur-sm">
+      <header className="sticky top-0 z-50 border-b border-border/50 bg-surface shadow-[0_1px_0_rgba(40,50,59,0.05),0_12px_30px_rgba(40,50,59,0.04)] backdrop-blur-sm">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 sm:gap-4">
             <div className="w-40 shrink-0 md:w-48 lg:w-64">
