@@ -8,6 +8,11 @@ type Service = {
   text: string;
 };
 
+type TechGroup = {
+  title: string;
+  items: string[];
+};
+
 type Step = string;
 
 type Props = Record<string, never>;
@@ -28,6 +33,10 @@ type AboutSectionProps = Record<string, never>;
 
 type ServicesSectionProps = {
   services: Service[];
+};
+
+type TechExperienceSectionProps = {
+  techGroups: TechGroup[];
 };
 
 type CurrentWorkSectionProps = {
@@ -74,6 +83,25 @@ const SERVICES: Service[] = [
   {
     title: "Automation & workflows",
     text: "Booking systems, internal tools, and automations that reduce manual work and improve how your business runs day-to-day.",
+  },
+];
+
+const TECH_GROUPS: TechGroup[] = [
+  {
+    title: "Web & mobile",
+    items: ["Next.js", "React", "React Native"],
+  },
+  {
+    title: "Languages",
+    items: ["TypeScript", "JavaScript"],
+  },
+  {
+    title: "Tools & services",
+    items: ["Supabase", "Sanity CMS", "Resend", "Redux"],
+  },
+  {
+    title: "AI & automation",
+    items: ["Codex (OpenAI)", "Claude", "Make"],
   },
 ];
 
@@ -256,6 +284,57 @@ function ServicesSection({ services }: ServicesSectionProps): JSX.Element {
               <p className="mt-3 text-sm leading-7 text-foreground/92">
                 {item.text}
               </p>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TechExperienceSection({
+  techGroups,
+}: TechExperienceSectionProps): JSX.Element {
+  return (
+    <section className="border-t border-border/50 bg-background">
+      <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="Tools & tech"
+            title="Technologies I’ve used in client environments."
+            className="max-w-3xl"
+          />
+        </ScrollReveal>
+
+        <ScrollReveal className="mt-8 max-w-3xl" delay={0.06}>
+          <p className="text-base leading-8 text-foreground/90">
+            I work with a broad set of tools across web, mobile, content,
+            backend services, AI, and automation. This is a focused snapshot of
+            the commercial stack I use most often, rather than the full list.
+          </p>
+        </ScrollReveal>
+
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {techGroups.map((group, index) => (
+            <ScrollReveal
+              key={group.title}
+              className="rounded-2xl border border-border/50 bg-surface p-6 shadow-[0_14px_30px_rgba(53,63,68,0.06)]"
+              delay={index * 0.06}
+              y={18}
+            >
+              <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-accent">
+                {group.title}
+              </h3>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-full border border-border/60 bg-surface-blue px-3 py-1.5 text-sm font-semibold text-foreground"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </ScrollReveal>
           ))}
         </div>
@@ -648,6 +727,7 @@ export default function FreelancePositioningSite(_props: Props): JSX.Element {
         <ServicesSection services={SERVICES} />
         <CurrentWorkSection projectFocus={PROJECT_FOCUS} />
         <PreviousWorkSectionCompact highlights={ORCA_HIGHLIGHTS} />
+        <TechExperienceSection techGroups={TECH_GROUPS} />
         <HowIWorkSection steps={STEPS} />
         <ContactSection />
         <WorkLinksSection />

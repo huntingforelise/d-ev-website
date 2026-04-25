@@ -4,7 +4,23 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "elisebuilds.com | Elise Verhoeye",
   description:
-    "Websites, mobile apps, and workflow automation for businesses that want to run more smoothly.",
+    "Freelance software engineer building websites, mobile apps, and workflow automation for businesses that want to run more smoothly.",
+  keywords: [
+    "Elise Verhoeye",
+    "freelance software engineer",
+    "Next.js developer",
+    "React developer",
+    "React Native developer",
+    "TypeScript developer",
+    "Supabase",
+    "Sanity CMS",
+    "Resend",
+    "Codex",
+    "OpenAI",
+    "Claude",
+    "Make automation",
+    "workflow automation",
+  ],
 };
 
 export const viewport: Viewport = {
