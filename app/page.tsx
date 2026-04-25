@@ -184,19 +184,23 @@ function AboutSection(_props: AboutSectionProps): JSX.Element {
         <div className="mt-10 grid gap-10 rounded-[2rem] border border-border/50 bg-surface p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)] lg:grid-cols-[1.35fr_0.65fr] lg:items-center lg:gap-12">
           <div className="max-w-none">
             <p className="mb-5 text-sm uppercase tracking-[0.22em] text-accent font-bold">
-              Automation that gives time back.
+              Mum, developer, curious human.
             </p>
             <p className="text-base leading-8 text-foreground/90">
               I&apos;m Elise, a freelance software engineer focused on building
               websites, mobile apps, and automation that make everyday business
-              operations feel simpler. I enjoy turning product ideas and messy
-              workflows into practical digital solutions that save time, reduce
-              manual work, and are easier to use, manage, and grow.
+              operations feel simpler. As a mum, I know how quickly busy days
+              fill up, so I care deeply about building practical digital
+              solutions that save time, reduce manual work, and make things
+              easier to use, manage, and grow.
             </p>
             <p className="mt-4 text-base leading-8 text-foreground/90">
               I like working closely with clients to understand what actually
               needs to happen, then shaping the technical solution around that
               so the final result fits the workflow, not the other way around.
+              I&apos;m also naturally curious and always learning, upskilling, and
+              exploring better ways to build so each solution is thoughtful,
+              current, and made to last.
             </p>
           </div>
 
@@ -470,6 +474,52 @@ function WorkLinksSection(): JSX.Element {
   );
 }
 
+function Footer(): JSX.Element {
+  const footerLinks = [
+    { href: "#work", label: "Work" },
+    { href: "#contact", label: "Contact" },
+  ];
+
+  return (
+    <footer className="border-t border-border/50 bg-foreground text-surface">
+      <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8">
+        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+          <div className="max-w-md">
+            <Image
+              src="/elisebuilds.svg"
+              alt="Elise Verhoeye logo"
+              width={196}
+              height={72}
+              className="h-auto w-44 brightness-0 invert"
+            />
+            <p className="mt-5 text-sm leading-7 text-surface/78">
+              Websites, apps, and workflow automation for businesses that want
+              cleaner systems and calmer operations.
+            </p>
+          </div>
+
+          <nav aria-label="Footer navigation" className="flex flex-wrap gap-3">
+            {footerLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="rounded-full border border-surface/20 px-4 py-2 text-sm font-semibold text-surface/86 transition hover:border-accent hover:bg-accent hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        <div className="mt-10 flex flex-col gap-3 border-t border-surface/15 pt-6 text-sm text-surface/62 sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2026 Elise Verhoeye. All rights reserved.</p>
+          <p>Based in Mallorca, working internationally.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function FreelancePositioningSite(_props: Props): JSX.Element {
   return (
@@ -507,6 +557,7 @@ export default function FreelancePositioningSite(_props: Props): JSX.Element {
         <ContactSection />
         <WorkLinksSection />
       </main>
+      <Footer />
     </div>
   );
 }
