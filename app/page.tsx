@@ -1,6 +1,7 @@
 import { JSX } from "react";
 import Image from "next/image";
 import { GoogleAppointmentButton } from "./components/GoogleAppointmentButton";
+import { ScrollReveal } from "./components/ScrollReveal";
 
 type Service = {
   title: string;
@@ -124,7 +125,7 @@ function SectionHeading({
 function Hero({ bestFit }: HeroProps): JSX.Element {
   return (
     <section className="mx-auto grid max-w-6xl gap-14 px-6 py-20 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-28">
-      <div className="max-w-3xl">
+      <ScrollReveal className="max-w-3xl" y={18}>
         <p className="mb-4 text-sm uppercase tracking-[0.26em] text-accent font-bold">
           Websites, apps & smarter workflows
         </p>
@@ -148,9 +149,9 @@ function Hero({ bestFit }: HeroProps): JSX.Element {
             View current work
           </a>
         </div>
-      </div>
+      </ScrollReveal>
 
-      <div className="relative">
+      <ScrollReveal className="relative" delay={0.12} y={22}>
         <div className="relative rounded-[2rem] border border-border/60 bg-surface-strong p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
           <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
             Best fit
@@ -167,7 +168,7 @@ function Hero({ bestFit }: HeroProps): JSX.Element {
             ))}
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }
@@ -177,13 +178,18 @@ function AboutSection(_props: AboutSectionProps): JSX.Element {
   return (
     <section className="border-t border-border/50 bg-surface-strong">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
-        <SectionHeading
-          eyebrow="About me"
-          title="Nice to meet you."
-          className="max-w-2xl"
-        />
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="About me"
+            title="Nice to meet you."
+            className="max-w-2xl"
+          />
+        </ScrollReveal>
 
-        <div className="mt-10 grid gap-10 rounded-[2rem] border border-border/50 bg-surface p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)] lg:grid-cols-[1.35fr_0.65fr] lg:items-center lg:gap-12">
+        <ScrollReveal
+          className="mt-10 grid gap-10 rounded-[2rem] border border-border/50 bg-surface p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)] lg:grid-cols-[1.35fr_0.65fr] lg:items-center lg:gap-12"
+          delay={0.08}
+        >
           <div className="max-w-none">
             <p className="mb-5 text-sm uppercase tracking-[0.22em] text-accent font-bold">
               Mum, developer, curious human.
@@ -217,7 +223,7 @@ function AboutSection(_props: AboutSectionProps): JSX.Element {
               />
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -227,17 +233,21 @@ function ServicesSection({ services }: ServicesSectionProps): JSX.Element {
   return (
     <section className="border-t border-border/50 bg-surface">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
-        <SectionHeading
-          eyebrow="What I help with"
-          title="Practical systems, not just code."
-          className="max-w-2xl"
-        />
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="What I help with"
+            title="Practical systems, not just code."
+            className="max-w-2xl"
+          />
+        </ScrollReveal>
 
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {services.map((item) => (
-            <div
+          {services.map((item, index) => (
+            <ScrollReveal
               key={item.title}
               className="rounded-2xl border border-border/50 bg-surface-strong p-6 transition hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_12px_28px_rgba(53,63,68,0.08)]"
+              delay={index * 0.08}
+              y={22}
             >
               <div className="mb-4 h-10 w-10 rounded-lg bg-surface-blue ring-1 ring-inset ring-border/50" />
               <h3 className="text-lg font-medium text-foreground">
@@ -246,7 +256,7 @@ function ServicesSection({ services }: ServicesSectionProps): JSX.Element {
               <p className="mt-3 text-sm leading-7 text-foreground/92">
                 {item.text}
               </p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
@@ -260,13 +270,18 @@ function CurrentWorkSection({
   return (
     <section id="work" className="border-t border-border/50 bg-surface-blue">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
-        <SectionHeading
-          eyebrow="Current work"
-          title="A secret mobile app is taking shape."
-          className="max-w-2xl"
-        />
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="Current work"
+            title="A secret mobile app is taking shape."
+            className="max-w-2xl"
+          />
+        </ScrollReveal>
 
-        <div className="mt-10 rounded-[2rem] border border-border/50 bg-surface-strong p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
+        <ScrollReveal
+          className="mt-10 rounded-[2rem] border border-border/50 bg-surface-strong p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]"
+          delay={0.08}
+        >
           <div className="flex flex-wrap items-start justify-between gap-6">
             <div className="max-w-2xl">
               <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
@@ -300,7 +315,7 @@ function CurrentWorkSection({
               </ul>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -312,13 +327,18 @@ function PreviousWorkSectionCompact({
   return (
     <section className="border-t border-border/50 bg-surface-strong">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
-        <SectionHeading
-          eyebrow="Previous work"
-          title="Projects I’ve helped bring to life."
-          className="max-w-2xl"
-        />
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="Previous work"
+            title="Projects I’ve helped bring to life."
+            className="max-w-2xl"
+          />
+        </ScrollReveal>
 
-        <div className="mt-10 rounded-[2rem] border border-border/50 bg-surface p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
+        <ScrollReveal
+          className="mt-10 rounded-[2rem] border border-border/50 bg-surface p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]"
+          delay={0.08}
+        >
           <div className="flex flex-wrap items-start justify-between gap-6">
             <div className="max-w-2xl">
               <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
@@ -370,9 +390,12 @@ function PreviousWorkSectionCompact({
               </ul>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
-        <div className="mt-8 rounded-[2rem] border border-border/50 bg-surface p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
+        <ScrollReveal
+          className="mt-8 rounded-[2rem] border border-border/50 bg-surface p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]"
+          delay={0.12}
+        >
           <div className="flex flex-wrap items-start justify-between gap-6">
             <div className="max-w-2xl">
               <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
@@ -446,7 +469,7 @@ function PreviousWorkSectionCompact({
               </p>
             </figcaption>
           </figure>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -456,23 +479,27 @@ function HowIWorkSection({ steps }: HowIWorkSectionProps): JSX.Element {
   return (
     <section className="border-t border-border/50 bg-surface">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
-        <SectionHeading
-          eyebrow="How I work"
-          title="Focused on outcomes, not just features."
-          className="max-w-2xl"
-        />
+        <ScrollReveal>
+          <SectionHeading
+            eyebrow="How I work"
+            title="Focused on outcomes, not just features."
+            className="max-w-2xl"
+          />
+        </ScrollReveal>
 
         <div className="mt-10 space-y-5">
           {steps.map((step, index) => (
-            <div
+            <ScrollReveal
               key={step}
               className="group flex items-center gap-4 rounded-2xl border border-border/50 bg-surface-strong p-5 transition hover:-translate-y-1 hover:border-accent/45 hover:shadow-[0_10px_24px_rgba(53,63,68,0.08)] focus-within:border-accent/45"
+              delay={index * 0.06}
+              y={18}
             >
               <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-accent/60 bg-surface text-sm text-accent transition group-hover:bg-surface-blue">
                 {index + 1}
               </div>
               <p className="text-sm leading-7 text-foreground/92">{step}</p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
@@ -484,7 +511,7 @@ function ContactSection(): JSX.Element {
   return (
     <section className="border-t border-border/50 bg-surface-blue" id="contact">
       <div className="mx-auto max-w-4xl px-6 py-20 lg:px-8">
-        <div className="rounded-[2rem] border border-border/50 bg-surface-strong p-10 text-center shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
+        <ScrollReveal className="rounded-[2rem] border border-border/50 bg-surface-strong p-10 text-center shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
           <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
             Get in touch
           </p>
@@ -502,7 +529,7 @@ function ContactSection(): JSX.Element {
               Send me an email
             </a>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -512,7 +539,7 @@ function WorkLinksSection(): JSX.Element {
   return (
     <section className="border-t border-border/50 bg-surface-strong">
       <div className="mx-auto max-w-4xl px-6 py-16 lg:px-8">
-        <div className="rounded-[2rem] border border-border/50 bg-surface p-8 text-center shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
+        <ScrollReveal className="rounded-[2rem] border border-border/50 bg-surface p-8 text-center shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
           <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
             A small note
           </p>
@@ -536,7 +563,7 @@ function WorkLinksSection(): JSX.Element {
               GitHub
             </a>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
