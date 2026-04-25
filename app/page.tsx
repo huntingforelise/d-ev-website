@@ -50,6 +50,9 @@ type HowIWorkSectionProps = {
 
 const GITHUB_URL = "https://github.com/huntingforelise";
 const LINKEDIN_URL = "https://www.linkedin.com/in/eliseverhoeye/";
+const ORCA_WEBSITE_URL = "https://getorca.com/";
+const ORCA_DOWNLOAD_URL =
+  "https://help.getorca.com/en/articles/8260060-how-do-i-download-the-orca-app";
 
 const BEST_FIT: BestFitItem[] = [
   "Service-based businesses",
@@ -335,15 +338,26 @@ function PreviousWorkSectionCompact({
                 boaters, and a smaller amount of website work to support the
                 wider product experience.
               </p>
-              <a
-                href="https://getorca.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              >
-                View the Orca website
-                <span aria-hidden="true">→</span>
-              </a>
+              <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
+                <a
+                  href={ORCA_WEBSITE_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  View the Orca website
+                  <span aria-hidden="true">→</span>
+                </a>
+                <a
+                  href={ORCA_DOWNLOAD_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  Download the Orca app
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
             </div>
 
             <div className="min-w-[260px] flex-1 rounded-3xl border border-border/50 bg-surface-strong p-6">
