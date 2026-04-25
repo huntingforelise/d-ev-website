@@ -352,7 +352,7 @@ const CurrentWorkSection = ({
         <ScrollReveal>
           <SectionHeading
             eyebrow="Current work"
-            title="A secret mobile app is taking shape."
+            title="What I’m secretly working on right now..."
             className="max-w-2xl"
           />
         </ScrollReveal>
