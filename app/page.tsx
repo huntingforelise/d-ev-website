@@ -77,11 +77,10 @@ const SERVICES: Service[] = [
 ];
 
 const PROJECT_FOCUS: string[] = [
-  "Structured booking and quote flow",
-  "Clear service selection and add-ons",
-  "Lead capture and email handling",
-  "Optimizing performance of media items",
-  "Foundation for future integrations",
+  "Converting an existing web app into a mobile app",
+  "Private buyer and seller features",
+  "Product flows designed around trust",
+  "Push notifications for timely updates",
 ];
 
 const ORCA_HIGHLIGHTS: string[] = [
@@ -201,8 +200,8 @@ function AboutSection(_props: AboutSectionProps): JSX.Element {
               I like working closely with clients to understand what actually
               needs to happen, then shaping the technical solution around that
               so the final result fits the workflow, not the other way around.
-              I&apos;m also naturally curious and always learning, upskilling, and
-              exploring better ways to build so each solution is thoughtful,
+              I&apos;m also naturally curious and always learning, upskilling,
+              and exploring better ways to build so each solution is thoughtful,
               current, and made to last.
             </p>
           </div>
@@ -263,7 +262,7 @@ function CurrentWorkSection({
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
         <SectionHeading
           eyebrow="Current work"
-          title="Building systems that support real businesses."
+          title="A secret mobile app is taking shape."
           className="max-w-2xl"
         />
 
@@ -274,18 +273,16 @@ function CurrentWorkSection({
                 In progress
               </p>
               <h3 className="mt-3 text-2xl font-semibold text-foreground">
-                Casa Film &amp; Music
+                Real estate mobile app
               </h3>
               <p className="mt-5 text-base leading-8 text-foreground/90">
-                I’m currently designing and building a custom website and
-                structured booking system for a creative studio offering
-                photography, videography, and music services.
+                I’m currently converting an existing real estate web app into a
+                mobile app for a more private way to buy and sell property.
               </p>
               <p className="mt-4 text-base leading-8 text-foreground/90">
-                The focus is on reducing back-and-forth communication,
-                standardising how enquiries are captured, and making the quoting
-                process faster, clearer, and more consistent — both for the
-                client and internally.
+                The app will include buyer and seller features, with an emphasis
+                on privacy, trust, and timely updates through push
+                notifications. More will be shared soon.
               </p>
             </div>
 
@@ -316,16 +313,73 @@ function PreviousWorkSectionCompact({
     <section className="border-t border-border/50 bg-surface-strong">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
         <SectionHeading
-          eyebrow="Previous experience"
-          title="Mobile app development for Orca."
+          eyebrow="Previous work"
+          title="Projects I’ve helped bring to life."
           className="max-w-2xl"
         />
 
         <div className="mt-10 rounded-[2rem] border border-border/50 bg-surface p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
           <div className="flex flex-wrap items-start justify-between gap-6">
             <div className="max-w-2xl">
+              <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
+                Casa Film &amp; Music
+              </p>
               <h3 className="mt-3 text-2xl font-semibold text-foreground">
+                Website &amp; booking system
+              </h3>
+              <p className="mt-5 text-base leading-8 text-foreground/90">
+                I designed and built a custom website and structured booking
+                system for a creative studio offering photography, videography,
+                and music services.
+              </p>
+              <p className="mt-4 text-base leading-8 text-foreground/90">
+                The work focused on reducing back-and-forth communication,
+                standardising how enquiries are captured, and making the quoting
+                process faster, clearer, and more consistent.
+              </p>
+              <p className="mt-5 text-sm font-semibold text-accent">
+                Link will be shared shortly.
+              </p>
+            </div>
+
+            <div className="min-w-[260px] flex-1 rounded-3xl border border-border/50 bg-surface-strong p-6">
+              <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
+                Focus areas
+              </p>
+              <ul className="mt-5 space-y-3 text-sm text-foreground">
+                <li className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent ring-1 ring-border" />
+                  <span>Structured booking and quote flow</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent ring-1 ring-border" />
+                  <span>Clear service selection and add-ons</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent ring-1 ring-border" />
+                  <span>Lead capture and email handling</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent ring-1 ring-border" />
+                  <span>Optimizing performance of media items</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent ring-1 ring-border" />
+                  <span>Foundation for future integrations</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 rounded-[2rem] border border-border/50 bg-surface p-8 shadow-[0_20px_50px_rgba(53,63,68,0.08)]">
+          <div className="flex flex-wrap items-start justify-between gap-6">
+            <div className="max-w-2xl">
+              <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
                 Orca
+              </p>
+              <h3 className="mt-3 text-2xl font-semibold text-foreground">
+                Marine navigation mobile app
               </h3>
               <p className="mt-5 text-base leading-8 text-foreground/90">
                 I worked with Orca, a startup building modern navigation tools
@@ -362,7 +416,7 @@ function PreviousWorkSectionCompact({
 
             <div className="min-w-[260px] flex-1 rounded-3xl border border-border/50 bg-surface-strong p-6">
               <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
-                Project highlights
+                Highlights
               </p>
               <ul className="mt-5 space-y-3 text-sm text-foreground">
                 {highlights.map((item) => (
@@ -374,24 +428,24 @@ function PreviousWorkSectionCompact({
               </ul>
             </div>
           </div>
-        </div>
 
-        <div className="mt-8 rounded-[1.5rem] border border-border/50 bg-surface-blue p-6 shadow-[0_12px_28px_rgba(53,63,68,0.06)] lg:p-7">
-          <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
-            What Judith said
-          </p>
-          <blockquote className="mt-4 text-base leading-8 italic text-foreground/92">
-            {ORCA_TESTIMONIAL.quote}
-          </blockquote>
-          <figcaption className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-border/50 pt-5">
-            <p className="font-semibold text-foreground">
-              {ORCA_TESTIMONIAL.name}
+          <figure className="mt-8 rounded-[1.5rem] border border-border/50 bg-surface-blue p-6 shadow-[0_12px_28px_rgba(53,63,68,0.06)] lg:p-7">
+            <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
+              What Judith said
             </p>
-            <span className="text-foreground/55">•</span>
-            <p className="text-sm text-foreground/75">
-              {ORCA_TESTIMONIAL.role} at {ORCA_TESTIMONIAL.company}
-            </p>
-          </figcaption>
+            <blockquote className="mt-4 text-base leading-8 italic text-foreground/92">
+              {ORCA_TESTIMONIAL.quote}
+            </blockquote>
+            <figcaption className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-border/50 pt-5">
+              <p className="font-semibold text-foreground">
+                {ORCA_TESTIMONIAL.name}
+              </p>
+              <span className="text-foreground/55">•</span>
+              <p className="text-sm text-foreground/75">
+                {ORCA_TESTIMONIAL.role} at {ORCA_TESTIMONIAL.company}
+              </p>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
