@@ -1,6 +1,6 @@
 "use client";
 
-import { JSX, ReactNode } from "react";
+import type { JSX, ReactNode } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
 type ScrollRevealProps = {
@@ -10,12 +10,12 @@ type ScrollRevealProps = {
   y?: number;
 };
 
-export function ScrollReveal({
+export const ScrollReveal = ({
   children,
   className,
   delay = 0,
   y = 28,
-}: ScrollRevealProps): JSX.Element {
+}: ScrollRevealProps): JSX.Element => {
   const shouldReduceMotion = useReducedMotion();
 
   return (
@@ -33,4 +33,4 @@ export function ScrollReveal({
       {children}
     </motion.div>
   );
-}
+};

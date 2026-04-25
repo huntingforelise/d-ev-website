@@ -1,4 +1,4 @@
-import { JSX } from "react";
+import type { JSX } from "react";
 import Image from "next/image";
 import { GoogleAppointmentButton } from "./components/GoogleAppointmentButton";
 import { ScrollReveal } from "./components/ScrollReveal";
@@ -133,11 +133,11 @@ const STEPS: Step[] = [
   "Deliver something clearer, faster, and easier to manage.",
 ];
 
-function SectionHeading({
+const SectionHeading = ({
   eyebrow,
   title,
   className = "",
-}: SectionHeadingProps): JSX.Element {
+}: SectionHeadingProps): JSX.Element => {
   return (
     <div className={className}>
       <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
@@ -148,9 +148,9 @@ function SectionHeading({
       </h2>
     </div>
   );
-}
+};
 
-function Hero({ bestFit }: HeroProps): JSX.Element {
+const Hero = ({ bestFit }: HeroProps): JSX.Element => {
   return (
     <section className="mx-auto grid max-w-6xl gap-14 px-6 py-20 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-28">
       <ScrollReveal className="max-w-3xl" y={18}>
@@ -199,10 +199,10 @@ function Hero({ bestFit }: HeroProps): JSX.Element {
       </ScrollReveal>
     </section>
   );
-}
+};
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-function AboutSection(_props: AboutSectionProps): JSX.Element {
+const AboutSection = (_props: AboutSectionProps): JSX.Element => {
   return (
     <section className="border-t border-border/50 bg-surface-strong">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
@@ -255,9 +255,9 @@ function AboutSection(_props: AboutSectionProps): JSX.Element {
       </div>
     </section>
   );
-}
+};
 
-function ServicesSection({ services }: ServicesSectionProps): JSX.Element {
+const ServicesSection = ({ services }: ServicesSectionProps): JSX.Element => {
   return (
     <section className="border-t border-border/50 bg-surface">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
@@ -290,11 +290,11 @@ function ServicesSection({ services }: ServicesSectionProps): JSX.Element {
       </div>
     </section>
   );
-}
+};
 
-function TechExperienceSection({
+const TechExperienceSection = ({
   techGroups,
-}: TechExperienceSectionProps): JSX.Element {
+}: TechExperienceSectionProps): JSX.Element => {
   return (
     <section className="border-t border-border/50 bg-background">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
@@ -341,11 +341,11 @@ function TechExperienceSection({
       </div>
     </section>
   );
-}
+};
 
-function CurrentWorkSection({
+const CurrentWorkSection = ({
   projectFocus,
-}: CurrentWorkSectionProps): JSX.Element {
+}: CurrentWorkSectionProps): JSX.Element => {
   return (
     <section id="work" className="border-t border-border/50 bg-surface-blue">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
@@ -398,11 +398,11 @@ function CurrentWorkSection({
       </div>
     </section>
   );
-}
+};
 
-function PreviousWorkSectionCompact({
+const PreviousWorkSectionCompact = ({
   highlights,
-}: PreviousWorkSectionProps): JSX.Element {
+}: PreviousWorkSectionProps): JSX.Element => {
   return (
     <section className="border-t border-border/50 bg-surface-strong">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
@@ -552,9 +552,9 @@ function PreviousWorkSectionCompact({
       </div>
     </section>
   );
-}
+};
 
-function HowIWorkSection({ steps }: HowIWorkSectionProps): JSX.Element {
+const HowIWorkSection = ({ steps }: HowIWorkSectionProps): JSX.Element => {
   return (
     <section className="border-t border-border/50 bg-surface">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
@@ -584,9 +584,9 @@ function HowIWorkSection({ steps }: HowIWorkSectionProps): JSX.Element {
       </div>
     </section>
   );
-}
+};
 
-function ContactSection(): JSX.Element {
+const ContactSection = (): JSX.Element => {
   return (
     <section className="border-t border-border/50 bg-surface-blue" id="contact">
       <div className="mx-auto max-w-4xl px-6 py-20 lg:px-8">
@@ -612,9 +612,9 @@ function ContactSection(): JSX.Element {
       </div>
     </section>
   );
-}
+};
 
-function WorkLinksSection(): JSX.Element {
+const WorkLinksSection = (): JSX.Element => {
   return (
     <section className="border-t border-border/50 bg-surface-strong">
       <div className="mx-auto max-w-4xl px-6 py-16 lg:px-8">
@@ -646,9 +646,9 @@ function WorkLinksSection(): JSX.Element {
       </div>
     </section>
   );
-}
+};
 
-function Footer(): JSX.Element {
+const Footer = (): JSX.Element => {
   const footerLinks = [
     { href: "#work", label: "Work" },
     { href: "#contact", label: "Contact" },
@@ -692,10 +692,10 @@ function Footer(): JSX.Element {
       </div>
     </footer>
   );
-}
+};
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default function FreelancePositioningSite(_props: Props): JSX.Element {
+const FreelancePositioningSite = (_props: Props): JSX.Element => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-50 border-b border-border/50 bg-surface shadow-[0_1px_0_rgba(40,50,59,0.05),0_12px_30px_rgba(40,50,59,0.04)] backdrop-blur-sm">
@@ -735,4 +735,6 @@ export default function FreelancePositioningSite(_props: Props): JSX.Element {
       <Footer />
     </div>
   );
-}
+};
+
+export default FreelancePositioningSite;

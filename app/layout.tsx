@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
@@ -27,11 +28,11 @@ export const viewport: Viewport = {
   themeColor: "#fff7ef",
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
-  children: React.ReactNode;
-}>) {
+  children: ReactNode;
+}>) => {
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full bg-background text-foreground">
@@ -39,4 +40,6 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
