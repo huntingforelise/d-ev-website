@@ -1,6 +1,6 @@
 import { JSX } from "react";
 import Image from "next/image";
-import { CalendlyButton } from "./components/CalendlyButton";
+import { GoogleAppointmentButton } from "./components/GoogleAppointmentButton";
 
 type Service = {
   title: string;
@@ -429,7 +429,7 @@ function ContactSection(): JSX.Element {
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <CalendlyButton />
+            <GoogleAppointmentButton />
             <a href="mailto:elise@elisebuilds.com" className="cta-secondary">
               Send me an email
             </a>
