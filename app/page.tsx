@@ -47,11 +47,10 @@ type PreviousWorkSectionProps = {
   highlights: string[];
 };
 
-type OrcaTestimonial = {
+type ClientTestimonial = {
   quote: string;
   name: string;
   role: string;
-  company: string;
 };
 
 type HowIWorkSectionProps = {
@@ -118,12 +117,18 @@ const ORCA_HIGHLIGHTS: string[] = [
   "Worked on smaller website improvements to support the broader product",
 ];
 
-const ORCA_TESTIMONIAL: OrcaTestimonial = {
+const ORCA_TESTIMONIAL: ClientTestimonial = {
   quote:
     "I worked with Elise at Orca, where we built mobile features in React Native for the Orca Navigation App... She didn’t just implement, she delivered. She thought through edge cases carefully, tested thoroughly, and didn’t ship until it was right. She is proactive, speaks up in discussions, and contributes well beyond her scope... clear, direct, and easy to work with. She works independently, and that confidence in owning her work is something that’s hard to find. I’d recommend her without hesitation.",
   name: "Judith Sirera i Pulido",
   role: "Senior Engineer",
-  company: "Orca",
+};
+
+const CASA_FILM_TESTIMONIAL: ClientTestimonial = {
+  quote:
+    "Working with Elise was a standout experience. She brought immediate clarity to my ideas and translated them into a well-structured, strategic website that truly makes sense, both visually and from a user journey perspective. She didn’t just build, she actively shaped the project. The booking flow has significantly reduced manual work on my side and made the whole process much more efficient. The final result aligns perfectly with what I envisioned, just more refined, more structured, and overall elevated.",
+  name: "Nathalie Kraft",
+  role: "Business owner",
 };
 
 const STEPS: Step[] = [
@@ -469,6 +474,24 @@ const PreviousWorkSectionCompact = ({
               </ul>
             </div>
           </div>
+
+          <figure className="mt-8 rounded-[1.5rem] border border-border/50 bg-surface-warm p-6 shadow-[0_12px_28px_rgba(53,63,68,0.06)] lg:p-7">
+            <p className="text-sm uppercase tracking-[0.24em] text-accent font-bold">
+              What Nathalie said
+            </p>
+            <blockquote className="mt-4 text-base leading-8 italic text-foreground/92">
+              {CASA_FILM_TESTIMONIAL.quote}
+            </blockquote>
+            <figcaption className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-border/50 pt-5">
+              <p className="font-semibold text-foreground">
+                {CASA_FILM_TESTIMONIAL.name}
+              </p>
+              <span className="text-foreground/55">•</span>
+              <p className="text-sm text-foreground/75">
+                {CASA_FILM_TESTIMONIAL.role}
+              </p>
+            </figcaption>
+          </figure>
         </ScrollReveal>
 
         <ScrollReveal
@@ -544,7 +567,7 @@ const PreviousWorkSectionCompact = ({
               </p>
               <span className="text-foreground/55">•</span>
               <p className="text-sm text-foreground/75">
-                {ORCA_TESTIMONIAL.role} at {ORCA_TESTIMONIAL.company}
+                {ORCA_TESTIMONIAL.role}
               </p>
             </figcaption>
           </figure>
